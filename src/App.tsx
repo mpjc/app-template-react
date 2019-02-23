@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withRouter, RouteComponentProps } from 'react-router-dom'
 import './App.scss';
 
 import { Header, Main, Footer } from './layout';
@@ -10,7 +11,7 @@ interface AppProps {
   theme: ThemeColors
 }
 
-class App extends Component<AppProps> {
+class App extends Component<RouteComponentProps & AppProps> {
   render() {
     return (
       <div className={'App ' + this.props.theme}>
@@ -30,4 +31,4 @@ const mapStateToProps = ({ settings }: ApplicationState) => ({
   theme: settings.theme
 });
 
-export default connect(mapStateToProps)(App);
+export default withRouter(connect(mapStateToProps)(App));
