@@ -1,28 +1,28 @@
 import React, { Component } from 'react';
 import './Header.scss';
 
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 class Header extends Component {
   render() {
     return (
       <header className="Header">
         <div id="nav">
-          <Link to="/">
+          <NavLink exact={true} activeClassName='is-active' to="/">
             <i className="fas fa-home"></i>
-          </Link>
+          </NavLink>
           <span>|</span>
-          <Link to="/list">
+          <NavLink activeClassName='is-active' to="/list">
             <i className="fas fa-tasks"></i>
-          </Link>
+          </NavLink>
           <span>|</span>
-          <Link to="/game">
+          <NavLink activeClassName='is-active' to="/game">
             <i className="fas fa-gamepad"></i>
-          </Link>
+          </NavLink>
           <span>|</span>
-          <Link to="/settings">
+          <NavLink activeClassName='is-active' to="/settings">
             <i className="fas fa-cog"></i>
-          </Link>
+          </NavLink>
         </div>
       </header>
     );

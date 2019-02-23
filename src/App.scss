@@ -1,15 +1,12 @@
 @import './assets/common.scss';
-
 .App {
+  font-size: 1.2em;
   text-align: center;
-  background-color: #282c34;
-  min-height: 100vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.2em;
-  color: white;
+  color: var(--color-1);
+  background-color: var(--bg-color-1);
   &-content {
     width: 100%;
     flex: 1 0 auto;
