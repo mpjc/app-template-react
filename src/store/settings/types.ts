@@ -5,8 +5,7 @@ export interface SettingsState {
 };
 
 const actions = {
-  SET_THEME: 'SET_THEME'
+  SET_THEME: 'SETTINGS/SET_THEME'
 }
 
 export { actions as SettingsActions };
-

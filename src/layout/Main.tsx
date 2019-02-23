@@ -5,7 +5,7 @@ import Home from '../features/Home';
 import { Route } from 'react-router';
 import Game from '../features/Game/Game';
 import List from '../features/List/List';
-import SettingsContainer from '../features/Settings/SettingsContainer';
+import SettingsContainer from '../features/Settings/Settings';
 
 class Main extends Component {
   render() {

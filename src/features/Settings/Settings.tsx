@@ -1,7 +1,10 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux';
+import { Dispatch } from 'redux';
 import './Settings.scss';
 
-import { ThemeColors } from '../../store/settings';
+import { ThemeColors, setTheme } from '../../store/settings';
+import { ApplicationState } from '../../store';
 
 export interface SettingsProps {
   theme: ThemeColors;
@@ -28,4 +31,15 @@ class Settings extends Component<SettingsProps> {
   }
 }
 
-export default Settings;
+const mapStateToProps = ({ settings }: ApplicationState) => ({
+  theme: settings.theme
+});
+
+const mapDispatchToProps = (dispatch: Dispatch) => ({
+  setTheme: (theme: ThemeColors) => dispatch(setTheme(theme))
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Settings);

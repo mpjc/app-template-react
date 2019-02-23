@@ -1,4 +1,4 @@
-import { SettingsActions, ThemeColors } from "./types";
+import { ThemeColors, SettingsActions } from "./types";
 
 export const setTheme = (theme: ThemeColors) =>
-  ({ type: SettingsActions.SET_THEME, payload: theme });
+  ({ type: SettingsActions.SET_THEME, theme });
