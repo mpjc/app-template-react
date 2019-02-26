@@ -13,7 +13,8 @@ class Home extends Component {
         <div className="Home-section Home-features">
           <p>Additional features include:</p>
           <p>Routing with react-router-dom</p>
-          <p>...</p>
+          <p>Theming with css variables</p>
+          <p>And a totally awesome game!</p>
         </div>
         <div className="Home-section">
           <p>

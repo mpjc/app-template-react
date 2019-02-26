@@ -11,8 +11,8 @@ const initialState: SettingsState = {
 const settingsReducer: Reducer<SettingsState> = (state = initialState, action) => {
   switch (action.type) {
     case SettingsActions.SET_THEME: {
-      const setTheme = action as SetThemeAction;
-      return { ...state, theme: setTheme.theme };
+      const { theme } = action as SetThemeAction;
+      return { ...state, theme };
     }
     default:
       return state;

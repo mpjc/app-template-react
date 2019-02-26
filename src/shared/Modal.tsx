@@ -17,14 +17,16 @@ class Modal extends Component<ModalProps> {
   }
 
   render() {
-    const { close, children } = this.props;
+    const { close, children, showClose } = this.props;
     return (
       <div className="Modal-background" onClick={this.tryClose} ref={this.bgRef}>
         <div className="Modal-wrapper">
           <div className="Modal-container">
-            <div v-if="showClose" className="Modal-close" onClick={close}>
-              <i className="fas fa-times fa-lg"></i>
-            </div>
+            {showClose &&
+              <div className="Modal-close" onClick={close}>
+                <i className="fas fa-times fa-lg"></i>
+              </div>
+            }
             <div className="Modal-header">{(children as any)[0]}</div>
             <div className="Modal-content">{(children as any)[1]}</div>
           </div>

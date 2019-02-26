@@ -1,13 +1,16 @@
 import { combineReducers } from 'redux'
+import { gameReducer, GameState } from './game';
+import { listReducer, ListState } from './list';
 import { settingsReducer, SettingsState } from './settings';
-import { ListState, listReducer } from './list';
 
 export interface ApplicationState {
-  readonly settings: SettingsState;
+  readonly game: GameState;
   readonly list: ListState;
+  readonly settings: SettingsState;
 }
 
 export const rootReducer = combineReducers<ApplicationState>({
-  settings: settingsReducer,
+  game: gameReducer,
   list: listReducer,
+  settings: settingsReducer,
 });

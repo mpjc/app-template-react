@@ -12,30 +12,26 @@ const initialState: ListState = {
   items: [],
 }
 
-// Thanks to Redux 4's much simpler typings, we can take away a lot of typings on the reducer side,
-// everything will remain type-safe.
 const listReducer: Reducer<ListState> = (state = initialState, action) => {
   switch (action.type) {
     case ListActions.ADD: {
-      const add = action as AddAction;
-      const items = [...state.items, { id: state.index++, value: add.value, checked: false }];
+      const { value } = action as AddAction;
+      const items = [...state.items, { id: state.index++, value, checked: false }];
       return { ...state, items };
     }
     case ListActions.EDIT: {
-      const edit = action as EditAction;
-      const items = state.items.map(i =>
-        i.id === edit.id ? { ...i, value: edit.value } : i);
+      const { id, value } = action as EditAction;
+      const items = state.items.map(i => i.id === id ? { ...i, value: value } : i);
       return { ...state, items };
     }
     case ListActions.REMOVE: {
-      const remove = action as RemoveAction;
-      const items = state.items.filter((i) => i.id !== remove.id);
+      const { id } = action as RemoveAction;
+      const items = state.items.filter((i) => i.id !== id);
       return { ...state, items };
     }
     case ListActions.TOGGLE: {
-      const toggle = action as ToggleAction;
-      const items = state.items.map((i) =>
-        i.id === toggle.id ? { ...i, checked: !i.checked } : i);
+      const { id } = action as ToggleAction;
+      const items = state.items.map((i) => i.id === id ? { ...i, checked: !i.checked } : i);
       return { ...state, items };
     }
     case ListActions.CLEAR: {

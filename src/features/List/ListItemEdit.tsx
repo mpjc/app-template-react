@@ -29,8 +29,7 @@ class ListItemEdit extends Component<ListItemEditProps, ListItemEditState> {
     const { inputValue } = this.state;
     return (
       <div className="ListItemEdit">
-        <input className="ListItemEdit-text" v-model="inputValue" value={inputValue}
-          onChange={this.onChange} />
+        <input className="ListItemEdit-text" value={inputValue} onChange={this.onChange} />
         <div className="ListItemEdit-controls">
           <div className="ListItemEdit-control ui-button" onClick={this.update}>Update</div>
           <div className="ListItemEdit-control ui-button" onClick={cancel}>Cancel</div>
