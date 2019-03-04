@@ -6,6 +6,7 @@
   --bg-color-2: #111;
 }
 .light {
+  --accent-color-1: #48b8ec;
   --color-1: #222;
   --color-2: #111;
   --bg-color-1: #eee;
