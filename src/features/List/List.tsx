@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import './List.scss';
@@ -18,34 +18,31 @@ interface ListProps {
   clear(): void;
 }
 
-class List extends Component<ListProps> {
-  render() {
-    const { items, checkedItems, uncheckedItems, add, clear } = this.props;
-    const separator = checkedItems.length
-      ? <hr className="List-separator"></hr>
-      : null;
+function List({ items, checkedItems, uncheckedItems, add, clear }: ListProps) {
+  const separator = checkedItems.length
+    ? <hr className="List-separator"></hr>
+    : null;
 
-    return (
-      <div className="List">
-        <h3>List</h3>
-        <ListAdd add={add} />
-        {
-          items.length
-            ?
-            <div className="List-items">
-              <ListItems items={uncheckedItems}>
-                <div>All complete!</div>
-              </ListItems>
-              {separator}
-              <ListItems items={checkedItems} />
-              <div className="List-clear ui-button" onClick={clear}>Clear</div>
-            </div>
-            :
-            <div className="List-empty">Add an item...</div>
-        }
-      </div >
-    );
-  }
+  return (
+    <div className="List">
+      <h3>List</h3>
+      <ListAdd add={add} />
+      {
+        items.length
+          ?
+          <div className="List-items">
+            <ListItems items={uncheckedItems}>
+              <div>All complete!</div>
+            </ListItems>
+            {separator}
+            <ListItems items={checkedItems} />
+            <div className="List-clear ui-button" onClick={clear}>Clear</div>
+          </div>
+          :
+          <div className="List-empty">Add an item...</div>
+      }
+    </div >
+  );
 }
 
 const mapStateToProps = ({ list }: ApplicationState) => ({
